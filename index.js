@@ -34,6 +34,7 @@ client.on('message', msg => {
           if ( typeof config.random[key] === 'undefined') config.random[key] = [];
 
           config.random[key].push(value);
+          writeConfig();
           msg.reply(`I have added '${value}' to randomizer named '${key}'.`);
         }
       }
@@ -53,6 +54,7 @@ client.on('message', msg => {
           let index = config.random[key].findIndex(x => x === value);
           if (index >= 0) {
             config.random[key].slice(index, ++index);
+            writeConfig();
             msg.reply(`I have removed '${value}' from randomizer named '${key}'.`);
           }
           else {
