@@ -62,7 +62,7 @@ client.on('message', msg => {
         
       }
       else {
-        let key = parts[2];
+        let key = parts[1];
 
         if ( typeof config.random[key] === 'undefined') {
           msg.reply(`Randomizer named '${key}' does not exist. \`\`\`!rand <group>\`\`\``);
