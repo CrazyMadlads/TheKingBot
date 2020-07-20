@@ -79,7 +79,7 @@ client.on('message', msg => {
 });
 
 
-function writeConfig() {
+async function writeConfig() {
   fs.writeFile(configPath, JSON.stringify(config));
 }
 client.login(config.discordToken);
