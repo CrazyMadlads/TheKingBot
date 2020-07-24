@@ -13,6 +13,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+  if (msg.author.id === client.user.id) return;
+
   let parts = msg.content.split(' ');
   if (parts.length === 0) return;
 
@@ -34,7 +36,7 @@ client.on('message', msg => {
           if ( typeof config.random[key] === 'undefined') config.random[key] = [];
 
           config.random[key].push(value);
-          writeConfig();
+          writeConfig(config);
           msg.reply(`I have added '${value}' to randomizer named '${key}'.`);
         }
       }
@@ -84,7 +86,7 @@ client.on('message', msg => {
 });
 
 
-async function writeConfig() {
+async function writeConfig(config) {
   fs.writeFile(configPath, JSON.stringify(config));
 }
 client.login(config.discordToken);
