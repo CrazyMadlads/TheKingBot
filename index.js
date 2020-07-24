@@ -76,10 +76,10 @@ client.on('message', msg => {
       }
     }
   }
-  if (message.content.indexOf('ayy') >= 0 || message.content.indexOf('Ayy') >= 0) {
-    var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + message.author + 'ayy Lmao! :alien:'), "https://goo.gl/WRuXn3"];
+  if (msg.content.indexOf('ayy') >= 0 || msg.content.indexOf('Ayy') >= 0) {
+    var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + msg.author + 'ayy Lmao! :alien:'), "https://goo.gl/WRuXn3"];
     var lmao = lmaos[Math.floor(Math.random()*lmaos.length)];
-    message.reply(lmao);
+    msg.reply(lmao);
   }
 });
 
