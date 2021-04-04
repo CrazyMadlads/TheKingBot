@@ -82,7 +82,7 @@ client.on('message', msg => {
   else if (parts[0] === '!valheim') {
     if (parts.length >= 2) {
       if (parts[1] === 'status') {
-        fetch("https://valheim.nautiluslab.host/status.json");
+       let request = fetch("https://valheim.nautiluslab.host/status.json");
         request
           .then(response => {
             var status = response.headers.get("status");
@@ -92,6 +92,14 @@ client.on('message', msg => {
               msg.reply("Server is not responding or there was an error!")
             }
           })
+      }
+      if (parts[1] === 'players') {
+        let settings = { method: "GET"};
+        fetch("https://valheim.nautiluslab.host/status.json", settings)
+        .then(response => response.json())
+        .then((json) => {
+
+        });
       }
     }
   }
