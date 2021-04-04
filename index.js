@@ -85,35 +85,20 @@ client.on('message', msg => {
         function checkStatus(res) {
           if (res.ok) {
             msg.reply("Server is up!")
-              return res;
+            return res;
           } else {
             msg.reply("Server is not responding or there was an error!")
-              throw serverDown(res.statusText);
+            throw serverDown(res.statusText);
           }
-      }
-      fetch('https://valheim.nautiluslab.host/status.json')
-      .then(checkStatus)
-      .then(res => console.log('stuffbrokeyo'))
-      //  let request = fetch("https://valheim.nautiluslab.host/status.json");
-      //   request
-      //     .then(response => {
-      //       var status = response.headers.get("status");
-      //       if (status === 200) {
-      //         console.log(status)
-      //         msg.reply("Server is up!")
-      //       } else {
-      //         console.log(status)
-      //         msg.reply("Server is not responding or there was an error!")
-      //       }
-      //     })
+        }
+        fetch('https://valheim.nautiluslab.host/status.json')
+          .then(checkStatus)
+          .then(res => console.log('stuffbrokeyo'))
       }
       if (parts[1] === 'players') {
-        let settings = { method: "GET"};
-        fetch("https://valheim.nautiluslab.host/status.json", settings)
-        .then(response => response.json())
-        .then((json) => {
-
-        });
+        fetch('https://valheim.nautiluslab.host/status.json')
+          .then(res => res.json())
+          .then(json => msg.reply(json.player_count + " people are on the server currently."))
       }
     }
   }
