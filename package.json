@@ -9,11 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
-    "bufferutil": "^4.0.1",
-    "discord.js": "^12.2.0",
+    "@discordjs/opus": "^0.5.0",
+    "bufferutil": "^4.0.3",
+    "discord.js": "^12.5.3",
     "erlpack": "github:discordapp/erlpack",
-    "utf-8-validate": "^5.0.2",
+    "node-fetch": "^2.6.1",
+    "utf-8-validate": "^5.0.4",
     "zlib-sync": "^0.1.7"
   }
 }
