@@ -91,6 +91,9 @@ client.on('message', msg => {
               throw serverDown(res.statusText);
           }
       }
+      fetch('https://valheim.nautiluslab.host/status.json')
+      .then(checkStatus)
+      .then(res => console.log('stuffbrokeyo'))
       //  let request = fetch("https://valheim.nautiluslab.host/status.json");
       //   request
       //     .then(response => {
