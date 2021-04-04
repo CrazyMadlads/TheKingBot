@@ -24,7 +24,7 @@ client.on('message', msg => {
   else if (parts[0] === '!rand') {
     if (typeof config.random === 'undefined') config.random = {};
 
-    if ( parts.length >= 2) {
+    if (parts.length >= 2) {
       if (parts[1] === 'add') {
         let key = parts[2];
         let values = parts.slice(3);
@@ -33,7 +33,7 @@ client.on('message', msg => {
         }
         else {
           let value = values.join(' ');
-          if ( typeof config.random[key] === 'undefined') config.random[key] = [];
+          if (typeof config.random[key] === 'undefined') config.random[key] = [];
 
           config.random[key].push(value);
           writeConfig(config);
@@ -49,7 +49,7 @@ client.on('message', msg => {
         else {
           let value = values.join(' ');
 
-          if ( typeof config.random[key] === 'undefined') {
+          if (typeof config.random[key] === 'undefined') {
             msg.reply(`Randomizer named '${key}' does not exist. \`\`\`!rand remove <group> <value>\`\`\``);
             return;
           }
@@ -63,12 +63,12 @@ client.on('message', msg => {
             msg.reply(`Value '${value}' does not exist in randomizer named '${key}'.`);
           }
         }
-        
+
       }
       else {
         let key = parts[1];
 
-        if ( typeof config.random[key] === 'undefined') {
+        if (typeof config.random[key] === 'undefined') {
           msg.reply(`Randomizer named '${key}' does not exist. \`\`\`!rand <group>\`\`\``);
           return;
         }
@@ -78,9 +78,34 @@ client.on('message', msg => {
       }
     }
   }
+  else if (parts[0] === '!valheim') {
+    if (parts.length >= 2) {
+      if (parts[1] === 'status') {
+        var url = "https://valheim.nautiluslab.host/status.json";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Accept", "application/json");
+        
+        xhr.onreadystatechange = function () {
+          if(this.readyState == 4 && this.readyState == 200){
+            var valdata = JSON.parse(this.responseText);
+            valdata = valArr[0];
+          }
+           };
+        
+        xhr.send();
+        msg.reply(valArr[3] + 'is Up!');
+        
+        
+      }
+    }
+  }
   if (msg.content.indexOf('ayy') >= 0 || msg.content.indexOf('Ayy') >= 0) {
     var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + msg.author + 'ayy Lmao! :alien:'), "https://goo.gl/WRuXn3"];
-    var lmao = lmaos[Math.floor(Math.random()*lmaos.length)];
+    var lmao = lmaos[Math.floor(Math.random() * lmaos.length)];
     msg.reply(lmao);
   }
 });
