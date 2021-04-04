@@ -16,6 +16,7 @@
     "erlpack": "github:discordapp/erlpack",
     "node-fetch": "^2.6.1",
     "utf-8-validate": "^5.0.4",
-    "zlib-sync": "^0.1.7"
+    "zlib-sync": "^0.1.7",
+    "node-fetch": "^2.6.1"
   }
 }
