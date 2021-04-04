@@ -83,9 +83,9 @@ client.on('message', msg => {
     if (parts.length >= 2) {
       if (parts[1] === 'status') {
         fetch('https://valheim.nautiluslab.host/status.json')
-        .then(function(){
+        .then(function(response){
           msg.reply("Valheim Server is up!");
-        }).catch(function(){
+        }).catch(function(error){
           msg.reply("Valheim server is down!");
         });
       }
