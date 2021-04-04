@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const fs = require('fs');
+const fetch = require('node-fetch');
 
 const configPath = 'config.json';
 let rawdata = fs.readFileSync(configPath);
@@ -81,25 +82,12 @@ client.on('message', msg => {
   else if (parts[0] === '!valheim') {
     if (parts.length >= 2) {
       if (parts[1] === 'status') {
-        var url = "https://valheim.nautiluslab.host/status.json";
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-        
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Accept", "application/json");
-        
-        xhr.onreadystatechange = function () {
-          if(this.readyState == 4 && this.readyState == 200){
-            var valdata = JSON.parse(this.responseText);
-            valdata = valArr[0];
-          }
-           };
-        
-        xhr.send();
-        msg.reply(valArr[3] + 'is Up!');
-        
-        
+        fetch('https://valheim.nautiluslab.host/status.json')
+        .then(function(){
+          msg.reply("Valheim Server is up!");
+        }).catch(function(){
+          msg.reply("Valheim server is down!");
+        });
       }
     }
   }
