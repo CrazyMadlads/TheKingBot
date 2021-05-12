@@ -106,7 +106,7 @@ client.on('message', msg => {
      msg.reply('https://bit.ly/3cLZouC');
    }
     if (msg.content.indexOf('ayy') >= 0 || msg.content.indexOf('Ayy') >= 0) {
-        var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + msg.author.username + 'ayy Lmao! :alien:'), "https://goo.gl/WRuXn3"];
+        var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + msg.author.username + 'ayy Lmao! :alien:'), "hhttps://bit.ly/3obkWER"];
     var lmao = lmaos[Math.floor(Math.random() * lmaos.length)];
     msg.reply(lmao);
   }
