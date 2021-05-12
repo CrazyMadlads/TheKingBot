@@ -1,9 +1,8 @@
 FROM node:latest
 RUN mkdir -p /app/TheKingBot
 WORKDIR /app/TheKingBot
-COPY package.json .
-RUN npm install -g npm@7.12.1
+COPY package.json /app/TheKingBot
 RUN npm install -g
-COPY . .
+COPY . /app/TheKingBot
 CMD ["node", "index.js"]
 
