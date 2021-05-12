@@ -1,8 +1,8 @@
-FROM node:16.1-buster
+FROM node:latest
 RUN mkdir -p /app/TheKingBot
 WORKDIR /app/TheKingBot
 COPY package.json /app/TheKingBot
-RUN npm install --production
+RUN npm install
 COPY . /app/TheKingBot
 CMD ["node", "index.js"]
 
