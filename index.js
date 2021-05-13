@@ -9,7 +9,7 @@ const embed = new Discord.MessageEmbed()
   .attachFiles('../TheKingBot/images/ayy.jpg')
   .setImage('attachment://ayy.jpg');
 
-let ayyimg = msg.channel.send({embed});
+let ayyimg = message.channel.send({embed});
 
 const configPath = 'config.json';
 let rawdata = fs.readFileSync(configPath);
