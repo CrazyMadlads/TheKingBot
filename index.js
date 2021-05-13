@@ -5,7 +5,9 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 
 const embed = new Discord.MessageEmbed()
-  .attachFiles(/app/TheKingBot/images/ayy.jpg);
+  .setTitle('ayy')
+  .attachFiles(/app/TheKingBot/images/ayy.jpg)
+  .setImage('attachment://ayy.jpg');
 
 const configPath = 'config.json';
 let rawdata = fs.readFileSync(configPath);
