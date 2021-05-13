@@ -5,6 +5,7 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 
 const embed = new Discord.MessageEmbed()
+  .setTitle("ayy lmao")
   .setImage("https://bit.ly/3obkWER")
   .setThumbnail("https://bit.ly/3obkWER");
 
