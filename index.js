@@ -9,6 +9,8 @@ const embed = new Discord.MessageEmbed()
   .attachFiles('../TheKingBot/images/ayy.jpg')
   .setImage('attachment://ayy.jpg');
 
+let ayyimg = msg.channel.send({embed});
+
 const configPath = 'config.json';
 let rawdata = fs.readFileSync(configPath);
 let config = JSON.parse(rawdata);
@@ -111,7 +113,7 @@ client.on('message', msg => {
      msg.reply('https://bit.ly/3cLZouC');
    }
     if (msg.content.indexOf('ayy') >= 0 || msg.content.indexOf('Ayy') >= 0) {
-        var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + "@" + msg.author.username + 'ayy Lmao! :alien:'), msg.channel.send({embed})];
+        var lmaos = ['ayy lmao! :alien:', 'remember the ayylmao! :alien: :face_with_cowboy_hat:', ('Your new name is ' + "@" + msg.author.username + 'ayy Lmao! :alien:'), ayyimg];
     var lmao = lmaos[Math.floor(Math.random() * lmaos.length)];
     msg.reply(lmao);
   }
