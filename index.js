@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 const fetch = require('node-fetch');
 
-const embed = new Discord.RichEmbed()
+const embed = new Discord.MessageEmbed()
   .setImage("https://bit.ly/3obkWER")
   .setThumbnail("https://bit.ly/3obkWER");
 
